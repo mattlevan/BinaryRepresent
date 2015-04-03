@@ -19,34 +19,40 @@ int main(void) {
     float f; // user float
     int mask = (1 << 31); // mask with 32nd bit = 1
 
+    // get integer
     printf("Enter an integer to display its binary representation: ");
     scanf("%d", &n);
 
+    // get float
     printf("Enter a float to display its binary representation: ");
     scanf("%f", &f);
 
     printf("\n%d in binary is:", n);
 
-    // loop through and check each bit
+    // loop 32 times and check each bit against the mask
     for (i = 31; i >= 0; i--) {
+        // print a space between every 8 bits for readability
         if ((i+1) % 8 == 0) {
             printf(" ");
         }
-
+        // use bitwise & to compare n with mask
+        // if > 0, current bit of n is 1; print it
         if ((n & mask) > 0) {
             printf("1");
         }
         else {
             printf("0");
         }
-
+        // shift mask by i
         mask = (1 << (i-1));
     }
 
     // reset mask
     mask = (1 << 31);
 
-    // cast f to int m
+    // cast f to int m by casting the address of f to an int *
+    // then dereferencing it, thereby simply taking the raw bits
+    // from the float f and storing them in the int m
     m = *(int*)&f;
 
     printf("\n%.2f in binary is:", f);
