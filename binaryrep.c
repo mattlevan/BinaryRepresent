@@ -16,7 +16,7 @@
 
 int main(void) {
     signed int userInt, castInt, i; // user int, int for casting to, iterator
-    float userFloat; // user float
+    float userFloat; // user float value
     int mask = (1 << 31); // mask with 32nd bit = 1
 
     // get integer
