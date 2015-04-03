@@ -15,19 +15,19 @@
 #include <stdlib.h>
 
 int main(void) {
-    int n, m, i; // user int, int for casting to, iterator
-    float f; // user float
+    signed int userInt, castInt, i; // user int, int for casting to, iterator
+    float userFloat; // user float
     int mask = (1 << 31); // mask with 32nd bit = 1
 
     // get integer
     printf("Enter an integer to display its binary representation: ");
-    scanf("%d", &n);
+    scanf("%d", &userInt);
 
     // get float
     printf("Enter a float to display its binary representation: ");
-    scanf("%f", &f);
+    scanf("%f", &userFloat);
 
-    printf("\n%d in binary is:", n);
+    printf("\n%d in binary is:", userInt);
 
     // loop 32 times and check each bit against the mask
     for (i = 31; i >= 0; i--) {
@@ -36,8 +36,8 @@ int main(void) {
             printf(" ");
         }
         // use bitwise & to compare n with mask
-        // if > 0, current bit of n is 1; print it
-        if ((n & mask) > 0) {
+        // if > 0, current bit of userInt is 1; print it
+        if ((userInt & mask) > 0) {
             printf("1");
         }
         else {
@@ -50,19 +50,21 @@ int main(void) {
     // reset mask
     mask = (1 << 31);
 
-    // cast f to int m by casting the address of f to an int *
+    // cast userFloat to castInt by casting the address of userFloat to an int *
     // then dereferencing it, thereby simply taking the raw bits
-    // from the float f and storing them in the int m
-    m = *(int*)&f;
+    // from the float userFloat and storing them in the int castInt 
+    //    m = *(int*)&userFloat;
 
-    printf("\n%.2f in binary is:", f);
+    castInt = (int) &userFloat;
+
+    printf("\n%.2f in binary is:", userFloat);
 
     for (i = 31; i >= 0; i--) {
         if ((i+1) % 8 == 0) {
             printf(" ");
         }
 
-        if ((m & mask) > 0) {
+        if ((castInt & mask) > 0) {
             printf("1");
         }
         else {
