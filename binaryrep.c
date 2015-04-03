@@ -15,7 +15,7 @@
 #include <stdlib.h>
 
 int main(void) {
-    int n, m, i; // user int, iterator
+    int n, m, i; // user int, int for casting to, iterator
     float f; // user float
     int mask = (1 << 31); // mask with 32nd bit = 1
 
