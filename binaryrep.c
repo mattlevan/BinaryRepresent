@@ -53,7 +53,6 @@ int main(void) {
     // cast userFloat to castInt by casting the address of userFloat to an int *
     // then dereferencing it, thereby simply taking the raw bits
     // from the float userFloat and storing them in the int castInt 
-    //    m = *(int*)&userFloat;
 
     castInt = (int) &userFloat;
 
