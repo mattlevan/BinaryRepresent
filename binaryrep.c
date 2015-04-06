@@ -35,7 +35,7 @@ int main(void) {
         if ((i+1) % 8 == 0) {
             printf(" ");
         }
-        // use bitwise & to compare n with mask
+        // use bitwise & to compare userInt with mask
         // if > 0, current bit of userInt is 1; print it
         if ((userInt & mask) > 0) {
             printf("1");
