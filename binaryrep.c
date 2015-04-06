@@ -38,7 +38,7 @@ int main(void) {
             printf(" ");
         }
         // use bitwise & to compare userInt with mask
-        // if > 0, current bit of userInt is 1; print it
+        // if != 0, current bit of userInt is 1; print it
         if ((userInt & mask) != 0) {
             printf("1");
         }
@@ -52,9 +52,10 @@ int main(void) {
     // reset mask
     mask = (1 << 31);
 
-    // cast userFloat to castInt by casting the address of userFloat to an int *
-    // then dereferencing it, thereby simply taking the raw bits
-    // from the float userFloat and storing them in the int castInt 
+    // cast userFloat to castInt by casting the address of userFloat
+    // to an int * then dereferencing it, thereby simply taking the 
+    // raw bits from the float userFloat and storing them in the int 
+    // castInt 
 
     castInt = *(int*) &userFloat;
 
